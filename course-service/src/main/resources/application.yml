@@ -1,0 +1,17 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: course-service
+
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: courseDB
+
+logging:
+  level:
+    root: INFO
+    com.studentmanagement.course_service: DEBUG
