@@ -4,22 +4,28 @@ import java.util.List;
 
 public class CourseDto {
 
-    private String name;
+    private java.lang.String name;
     private List<String> students;
+    private int totalStudent;
 
     public CourseDto() {
     }
 
-    public CourseDto(String name, List<String> students) {
+    public CourseDto(java.lang.String name, List<String> students) {
         this.name = name;
         this.students = students;
+        this.totalStudent=students.size();
     }
 
-    public String getName() {
+    public java.lang.String getName() {
         return name;
     }
 
     public List<String> getStudents() {
         return students;
+    }
+
+    public int getTotalStudent() {
+        return totalStudent;
     }
 }
