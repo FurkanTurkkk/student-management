@@ -53,7 +53,6 @@ public class CourseService {
         if(course.isPresent()){
             return course.get();
         }
-
         throw new RuntimeException("Course could not found by course id : "+courseId);
     }
 
