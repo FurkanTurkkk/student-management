@@ -1,0 +1,17 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: note-service
+
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: gradeDB
+
+logging:
+  level:
+    root: INFO
+    com.studentmanagement.course_service: DEBUG

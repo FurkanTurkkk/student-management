@@ -55,6 +55,12 @@ public class StudentService {
         throw new RuntimeException("Student could not found by student number : "+studentNumber);
     }
 
+    public StudentDto findStudentByStudentId(String studentId) {
+        Student student=studentRepository.findById(studentId)
+                .orElseThrow(()->new RuntimeException("Student could not found by id : "+studentId));
+        return converter.convert(student);
+    }
+
     private Student saveStudent(Student student){
         return studentRepository.save(student);
     }
