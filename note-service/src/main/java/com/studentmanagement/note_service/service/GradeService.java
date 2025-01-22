@@ -20,7 +20,6 @@ public class GradeService {
         this.converter = converter;
     }
 
-
     public GradeDto addGradeOfStudent(String courseId, String studentId, RequestForCreateNote request) {
         Optional<Grade> registeredGrade=gradeRepository.findByStudentIdAndCourseId(studentId,courseId);
         if(registeredGrade.isPresent()){
@@ -34,4 +33,5 @@ public class GradeService {
         gradeRepository.save(grade);
         return converter.convert(grade);
     }
+
 }

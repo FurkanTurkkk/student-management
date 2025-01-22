@@ -4,6 +4,8 @@ package com.studentmanagement.note_service.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Objects;
+
 @Document(collection = "grades")
 public class Grade {
 
@@ -69,5 +71,17 @@ public class Grade {
 
     public void upgradeLetterGrade(int grade){
         this.letterGrade= calculateLetterGrade(grade);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Grade grade = (Grade) o;
+        return Objects.equals(studentId, grade.studentId) && Objects.equals(courseId, grade.courseId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(studentId, courseId);
     }
 }

@@ -28,12 +28,12 @@ public class CourseService {
         return converter.convert(courseRepository.save(course));
     }
 
-    public void deleteCourseById(java.lang.String courseId) {
+    public void deleteCourseById(String courseId) {
         Course course=findCourseById(courseId);
         courseRepository.delete(course);
     }
 
-    public CourseDto getCourseById(java.lang.String courseId) {
+    public CourseDto getCourseById(String courseId) {
         Course course=findCourseById(courseId);
         return converter.convert(course);
     }
@@ -48,7 +48,7 @@ public class CourseService {
         return converter.convert(courseRepository.save(course));
     }
 
-    private Course findCourseById(java.lang.String courseId){
+    private Course findCourseById(String courseId){
         Optional<Course> course=courseRepository.findById(courseId);
         if(course.isPresent()){
             return course.get();

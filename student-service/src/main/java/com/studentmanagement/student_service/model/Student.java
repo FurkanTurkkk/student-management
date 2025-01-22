@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Document
@@ -79,5 +80,17 @@ public class Student {
         int year= Year.now().getValue();
         int uniqueNumber=counter.incrementAndGet();
         return String.format("%d-STU-%04d",year,uniqueNumber);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return Objects.equals(tc, student.tc) && Objects.equals(phoneNumber, student.phoneNumber);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(tc, phoneNumber);
     }
 }
